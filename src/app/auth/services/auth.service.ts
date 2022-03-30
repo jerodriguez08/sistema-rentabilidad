@@ -42,8 +42,6 @@ export class AuthService {
   login(correo: string, clave: string) {
     const url = `${this.urlBase}/login/`;
     const body = { correo, clave };
-
-    console.log(url, body);
     
 
     return this.http.post<AuthResponse>(url, body)
