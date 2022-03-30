@@ -34,7 +34,7 @@ export class VerificationCodeComponent implements OnInit, DoCheck {
   invalidField(field: string): boolean {
     if (this.formCode.controls[field].invalid
       && this.formCode.controls[field].touched 
-      || this.formCode.controls[field].errors) {
+      || this.formCode.controls[field].errors && this.formCode.controls[field].touched) {
 
       const errors = this.formCode.controls[field].errors;
 
