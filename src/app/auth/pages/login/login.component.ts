@@ -18,8 +18,8 @@ export class LoginComponent implements OnInit {
   activateRequired: boolean = false;
 
   formLogin: FormGroup = this.fb.group({
-    email: ['prueba@test.com', [Validators.required, Validators.pattern(this.validate.emailPattern)]],
-    password: ['123456aA', [Validators.required]]
+    email: ['', [Validators.required, Validators.pattern(this.validate.emailPattern)]],
+    password: ['', [Validators.required]]
   });
 
 

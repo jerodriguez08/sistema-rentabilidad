@@ -14,7 +14,7 @@ export class VerificationCodeComponent implements OnInit, DoCheck {
 
   // Formulario
   formCode: FormGroup = this.fb.group({
-    code: ['qwertyu', [Validators.required, Validators.minLength(7)]]
+    code: ['', [Validators.required, Validators.minLength(7)]]
   });
 
   constructor(

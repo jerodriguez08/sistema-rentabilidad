@@ -12,14 +12,11 @@ import { AuthService } from '../../../../services/auth.service';
 })
 export class EmailComponent implements OnInit {
 
-   // ------ Formato correcto de un email
-   emailFormat: string = "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$";
-
   msg: string = '';
 
   //  ------ Formulario
   formPassword: FormGroup = this.fb.group({
-    email: ['prueba@mail.com', [Validators.required, Validators.pattern(this.validate.emailPattern)]]
+    email: ['', [Validators.required, Validators.pattern(this.validate.emailPattern)]]
   });
 
   constructor(
