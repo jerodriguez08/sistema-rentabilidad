@@ -1,0 +1,104 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* ------ Estilos contenedor geneeral de la card ----- */
+#container {
+    width: 100%;
+    height: 100vh;
+}
+
+/* ------ Estilos de la tarjeta ----- */
+.card {
+    /* height: 80vh; */
+    min-width: 30vh;
+    min-height: 80vh;
+    background-color: white;
+    border: 1px solid #a5a4a4;
+    border-radius: 18px;
+    margin-right: 10vh;
+}
+
+/* ------ Estilos modificados de input-group para poder insertarle el icono ----- */
+.input-group {
+    position: relative !important;
+    width: 100%;
+}
+
+/* ------ Estilos modificados del input ----- */
+.form-control{
+    box-sizing: border-box !important;
+    padding: 4px 4px 4px 40px;
+    width: 100%;
+}
+
+/* ------ Clase del icono en el input ----- */
+.input-icon {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 12px;
+    top: 47%;
+    transform: translateY(-50%);
+    z-index: 99;
+}
+
+/* ------ Clase del boton rojo ----- */
+.red {
+    background-color: #E01747;
+    color: white;
+}
+
+.red:hover {
+    background-color: #bd0e37;
+    color: white;
+}
+
+
+/* ------ Clase de los link ----- */
+.link{
+    cursor: pointer;
+}
+
+/* ------ Estilos para botón de ir atrás ------ */
+.back-button {
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    left: 45px;
+    z-index: 99;
+}
+
+.back-button i {
+    font-size: 35px;
+}
+
+/* ------ Estilos del icono de error */
+.error-icon {
+    background-color: none;
+    color: #E01747;
+    margin-right: 5px;
+}
+
+
+/* -------------------- Responsive ----------------- */
+@media (max-width: 576px) {
+    #container {
+        display: flex !important;
+        justify-content: center !important;
+    }
+
+    .card {
+        width: 80%;
+        margin-right: 0vh;
+    }
+
+    form{
+        width: 90% !important;
+    }
+
+    .back-button {
+        top: 8px;
+        left: 20px;
+    }
+    
+}
+

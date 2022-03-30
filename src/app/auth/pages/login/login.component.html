@@ -1,0 +1,74 @@
+<!-- ------- Inicio contenedor de la tarjeta ------ -->
+<div id="container" class="d-flex justify-content-end align-items-center">
+
+    <!-- ------Inicio tarjeta ------ -->
+    <div class="card align-items-center col-md-4 col-sm-6 col-xs-12">
+        <h2 class="mt-5 text-center">Iniciar sesión</h2>
+
+        <!-- ------ Inicio formulario ------ -->
+        <form [formGroup]="formLogin" (ngSubmit)="sendLogin()" autocomplete="off" class="col-10">
+
+            <!-- ------ Inicio campo email ------ -->
+            <div class="input-group mt-5">
+                <div class="col-md-12 col-12">
+                    <i class="bi bi-envelope-fill input-icon"></i>
+                    <input type="email" [ngClass]="hasError('email')" placeholder="Ingresa tu email"
+                        formControlName="email" />
+                </div>
+            </div>
+            <small *ngIf="invalidField('email')">
+                <i class="bi bi-exclamation-circle-fill error-icon"></i>
+                <span class="text-danger">{{ this.formLogin.controls['email'].errors?.['msg'] }}</span>
+            </small>
+            <!-- ------ Fin campo email ------ -->
+
+            <!-- ------ Inicio campo password ------ -->
+            <div class="input-group mt-3">
+                <div class="col-md-12 col-12">
+                    <i class="bi bi-lock-fill input-icon"></i>
+                    <input type="password" [ngClass]="hasError('password')" placeholder="Ingresa tu contraseña"
+                        formControlName="password" />
+                </div>
+            </div>
+            <small *ngIf="invalidField('password')">
+                <i class="bi bi-exclamation-circle-fill error-icon"></i>
+                <span class="text-danger">{{ this.formLogin.controls['password'].errors?.['msg'] }}</span>
+            </small>
+            <!-- ------ Fin campo password ------ -->
+
+            <div *ngIf="activateRequired" class="d-flex justify-content-center">
+                <a routerLink="/auth/register/verification" class="link-info mt-2">Activa tu cuenta aquí</a>
+            </div>
+
+            <!-- ------ Inicio Botón entrar ------ -->
+            <div class="d-flex justify-content-end mt-5">
+                <button type="submit" class="btn red mt-4">
+                    Entrar
+                </button>
+            </div>
+            <!-- ------ Fin Botón entrar ------ -->
+
+        </form>
+        <!-- ------ Fin formulario ------ -->
+
+        <div class="col-10">
+            <!-- ------ Inicio de enlaces ------ -->
+            <div class="d-flex align-items-end flex-column mt-4">
+
+                <a class="link" routerLink="/auth/register">Registrarse</a>
+                <a routerLink="/auth/password" class="link">¿Olvidaste tu contraseña?</a>
+
+            </div>
+            <!-- ------ Fin de enlaces ------ -->
+
+            <!-- ------ Inicio de alerta condicional si hay error en el ingreso ------ -->
+            <div *ngIf="errorResponse" class="alert alert-danger mt-2" role="alert">
+                {{errorResponse}}
+            </div>
+            <!-- ------ Fin de alerta condicional si hay error en el ingreso ------ -->
+        </div>
+
+    </div>
+    <!-- ------Fin tarjeta ------ -->
+</div>
+<!-- ------- Fin contenedor de la tarjeta ------ -->

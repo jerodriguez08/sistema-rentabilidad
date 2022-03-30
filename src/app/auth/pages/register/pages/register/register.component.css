@@ -1,0 +1,25 @@
+/* ------ Estilos para botón de ir atrás ------ */
+.back-button {
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    left: 45px;
+    z-index: 99;
+}
+
+.back-button i {
+    font-size: 35px;
+}
+
+.msg {
+    margin-top: 30px;
+    margin-right: auto;
+}
+
+/* -------------------- Responsive ----------------- */
+@media (max-width: 576px) {
+    .back-button {
+        top: 8px;
+        left: 20px;
+    }
+}

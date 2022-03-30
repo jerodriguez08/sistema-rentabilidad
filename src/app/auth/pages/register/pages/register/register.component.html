@@ -1,0 +1,126 @@
+<!-- ------- Inicio contenedor de la tarjeta ------ -->
+<div id="container" class="d-flex justify-content-end align-items-center">
+
+    <!-- Inicio botón atrás -->
+    <div class="back-button">
+        <i class="bi bi-arrow-left-circle" routerLink="/auth"></i>
+    </div>
+    <!-- Fin botón atrás -->
+
+    <!-- ------Inicio tarjeta ------ -->
+    <div class="card align-items-center col-md-4 col-sm-6 col-xs-12">
+        <h2 class="mt-5 text-center">Registrarse</h2>
+
+        <!-- ------ Inicio formulario ------ -->
+        <form class="col-md-10" autocomplete="off" [formGroup]="miFormulario" (ngSubmit)="register()">
+
+            <!-- ------ Inicio campo nombre ------ -->
+            <div class="input-group mt-3">
+                <div class="col-md-12 col-12">
+                    <i class="bi bi-person-fill input-icon"></i>
+                    <input type="text" formControlName="nombre" [ngClass]="hasError('nombre')" placeholder="Ingresa tu nombre(s)" >
+                </div>
+            </div>
+            <small *ngIf="invalidField('nombre')">
+                <i class="bi bi-exclamation-circle-fill error-icon"></i>
+                <span class="form-text text-danger">{{ this.miFormulario.controls['nombre'].errors?.['msg'] }}</span>
+            </small>
+            <!-- ------ Fin campo nombre ------ -->
+
+            <!-- ------ Inicio campo apellido paterno ------ -->
+            <div class="input-group mt-3">
+                <div class="col-md-12 col-12">
+                    <i class="bi bi-person-fill input-icon"></i>
+                    <input type="text" formControlName="apPaterno" [ngClass]="hasError('apPaterno')" placeholder="Ingresa tu apellido paterno">
+                </div>
+            </div>
+            <small *ngIf="invalidField('apPaterno')">
+                <i class="bi bi-exclamation-circle-fill error-icon"></i>
+                <span class="form-text text-danger">{{ this.miFormulario.controls['apPaterno'].errors?.['msg'] }}</span>
+            </small>
+            <!-- ------ Fin campo apellido materno ------ -->
+
+            <!-- ------ Inicio campo apellido paterno ------ -->
+            <div class="input-group mt-3">
+                <div class="col-md-12 col-12">
+                    <i class="bi bi-person-fill input-icon"></i>
+                    <input type="text" formControlName="apMaterno" [ngClass]="hasError('apMaterno')" placeholder="Ingresa tu apellido materno">
+                </div>
+            </div>
+            <small *ngIf="invalidField('apMaterno')">
+                <i class="bi bi-exclamation-circle-fill error-icon"></i>
+                <span class="form-text text-danger">{{ this.miFormulario.controls['apMaterno'].errors?.['msg'] }}</span>
+            </small>
+            <!-- ------ Fin campo apellido paterno ------ -->
+
+            <!-- ------ Inicio campo email ------ -->
+            <div class="input-group mt-3">
+                <div class="col-md-12 col-12">
+                    <i class="bi bi-envelope-fill input-icon"></i>
+                    <input type="email" formControlName="email" [ngClass]="hasError('email')" placeholder="Ingresa tu email">
+                </div>
+            </div>
+            <small *ngIf="invalidField('email')">
+                <i class="bi bi-exclamation-circle-fill error-icon"></i>
+                <span class="form-text text-danger">{{ this.miFormulario.controls['email'].errors?.['msg'] }}</span>
+            </small>
+            <!-- ------ Fin campo email ------ -->
+
+            <!-- ------ Inicio campo password ------ -->
+            <div class="input-group mt-3">
+                <div class="col-md-12 col-12">
+                    <i class="bi bi-lock-fill input-icon"></i>
+                    <input type="password" formControlName="password" [ngClass]="hasError('password')" placeholder="Ingresa tu contraseña">
+                </div>
+            </div>
+            <small *ngIf="invalidField('password')">
+                <i class="bi bi-exclamation-circle-fill error-icon"></i>
+                <span class="form-text text-danger">{{ this.miFormulario.controls['password'].errors?.['msg'] }}</span>
+            </small>
+            <!-- ------ Fin campo password ------ -->
+
+            <!-- ------ Inicio campo confirmar password ------ -->
+            <div class="input-group mt-3">
+                <div class="col-md-12 col-12">
+                    <i class="bi bi-lock-fill input-icon"></i>
+                    <input type="password" formControlName="passwordConf" [ngClass]="hasError('passwordConf')" placeholder="Confirma tu contraseña">
+                </div>
+            </div>
+            <small *ngIf="invalidField('passwordConf')">
+                <i class="bi bi-exclamation-circle-fill error-icon"></i>
+                <span class="form-text text-danger">{{ this.miFormulario.controls['passwordConf'].errors?.['msg'] }}</span>
+            </small>
+            <!-- ------ Fin campo confirmar password ------ -->
+
+            <!-- Inicio campo puesto -->
+            <div class="input-group mt-3">
+                <div class="col-md-12 col-12">
+                <i class="bi bi-person-fill input-icon"></i>
+                <select formControlName="puesto" [ngClass]="!invalidField('puesto') ? 'form-select form-control':'form-select form-control border-danger'" aria-label="Default select example">
+                    <option value="" disabled>Puesto</option>
+                    <option *ngFor="let puesto of puestos; let i = index" [ngValue]="puestosNumber[i]">{{ puesto }}</option>
+                </select>
+                </div>
+            </div>
+            <small *ngIf="invalidField('puesto')">
+                <i class="bi bi-exclamation-circle-fill error-icon"></i>
+                <span class="form-text text-danger">{{ this.miFormulario.controls['puesto'].errors?.['msg'] }}</span>
+            </small>
+            <!-- Fin campo puesto -->
+
+            <!-- ------ Inicio Botón registrarse ------ -->
+            <div class="d-flex justify-content-end">
+                <a class="link msg" routerLink="/auth/register/verification" *ngIf="emailBackError">Activar cuenta</a>
+                <button class="btn red mt-4 mb-4" >
+                    Registrarse
+                </button>
+            </div>
+            <!-- ------ Fin Botón registrarse ------ -->
+
+        </form>
+        <!-- ------ Fin formulario ------ -->
+
+    </div>
+    <!-- ------Fin tarjeta ------ -->
+</div>
+<!-- ------- Fin contenedor de la tarjeta ------ -->

@@ -1,0 +1,52 @@
+<!-- ------- Inicio contenedor de la tarjeta ------ -->
+<div id="container" class="d-flex justify-content-end align-items-center">
+
+    <!-- ------Inicio botón atrás ------ -->
+    <div class="back-button">
+        <i class="bi bi-arrow-left-circle" routerLink="/auth"></i>
+    </div>
+    <!-- ------ Fin botón atrás ------ -->
+
+    <!-- ------Inicio tarjeta ------ -->
+    <div class="card align-items-center col-md-4 col-sm-6 col-xs-12">
+        <h2 class="d-flex flex-column align-items-center mt-4 mb-5">
+            <p>Recupera tu</p>
+            <p>contraseña</p>
+        </h2>
+
+        <!-- ------ Inicio formulario ------ -->
+        <form [formGroup]="formPassword" (ngSubmit)="sendEmail()" autocomplete="off" class="col-10">
+            <!-- ------ Inicio campo email ------ -->
+            <div class="input-group mt-4">
+                <div class="col-md-12 col-12">
+                    <i class="bi bi-envelope-fill input-icon"></i>
+                    <input type="email" [ngClass]="hasError('email')" placeholder="Ingresa tu email" formControlName="email">
+                </div>
+            </div>
+            <small *ngIf="invalidField('email')">
+                <i class="bi bi-exclamation-circle-fill error-icon"></i>
+                <span class="text-danger">{{ this.formPassword.controls['email'].errors?.['msg']}}</span>
+            </small>
+            <!-- ------ Fin campo email ------ -->
+
+            <!-- ------ Inicio alerte informativa ------ -->
+            <small class="d-flex justify-content-center col-12 mt-4">
+                <i class="bi bi-chat-quote-fill me-2"></i>
+                <p class="d-flex align-items-center">Enviaremos un código de recuperación a este correo</p>
+            </small>
+            <!-- ------ Fin alerte informativa ------ -->
+
+            <!-- ------ Inicio Botón enviar ------ -->
+            <div class="d-flex justify-content-end mt-5">
+                <button type="submit" class="btn red mt-4">
+                    Enviar
+                </button>
+            </div>
+            <!-- ------ Fin Botón enviar ------ -->
+        </form>
+        <!-- ------ Fin formulario ------ -->
+
+    </div>
+    <!-- ------Fin tarjeta ------ -->
+</div>
+<!-- ------- Fin contenedor de la tarjeta ------ -->

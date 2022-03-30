@@ -1,0 +1,45 @@
+<!-- ------- Inicio contenedor de la tarjeta ------ -->
+<div id="container" class="d-flex justify-content-end align-items-center">
+
+    <!-- ------Inicio botón atrás ------ -->
+    <div class="back-button">
+        <i class="bi bi-arrow-left-circle" routerLink="/auth/password"></i>
+    </div>
+    <!-- ------ Fin botón atrás ------ -->
+
+    <!-- ------Inicio tarjeta ------ -->
+    <div class="card align-items-center col-md-4 col-sm-6 col-xs-12">
+        <h2 class="text-center mt-5 mb-5">
+            Ingresa el código enviado
+        </h2>
+
+        <!-- ------ Inicio formulario ------ -->
+        <form [formGroup]="formCode" (ngSubmit)="sendCode()" autocomplete="off" class="col-10">
+            <!-- ------ Inicio campo email ------ -->
+            <div class="input-group mt-5">
+                <div class="col-md-12 col-12">
+                    <i class="bi bi-envelope-fill input-icon"></i>
+                    <input type="text" [ngClass]="hasError('code')" placeholder="Ingresa el codigo"
+                        formControlName="code">
+                </div>
+            </div>
+            <small *ngIf="invalidField('code')">
+                <i class="bi bi-exclamation-circle-fill error-icon"></i>
+                <span class="text-danger">{{ this.formCode.controls['code'].errors?.['msg'] }}</span>
+            </small>
+            <!-- ------ Fin campo email ------ -->
+
+            <!-- ------ Inicio Botón enviar ------ -->
+            <div class="d-flex justify-content-end mt-5">
+                <button type="submit" class="btn red mt-4">
+                    Enviar
+                </button>
+            </div>
+            <!-- ------ Fin Botón enviar ------ -->
+        </form>
+        <!-- ------ Fin formulario ------ -->
+
+    </div>
+    <!-- ------Fin tarjeta ------ -->
+</div>
+<!-- ------- Fin contenedor de la tarjeta ------ -->

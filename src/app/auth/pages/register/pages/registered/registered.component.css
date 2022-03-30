@@ -1,0 +1,26 @@
+.bg-02 {
+    background-image: url('/assets/img/bg-02.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.elements h1 {
+    padding-top: 150px;
+}
+
+.elements p {
+    font-size: 22px;
+    margin-top: 150px;
+    margin-bottom: 60px;
+    padding-left: 400px;
+    padding-right: 400px;
+}
+
+@media (max-width: 1200px) {
+    .elements p {
+        padding-left: 0px;
+        padding-right: 0px;
+        margin-top: 100;
+    }
+}

@@ -1,0 +1,54 @@
+<!-- ------- Inicio contenedor de la tarjeta ------ -->
+<div id="container" class="d-flex justify-content-end align-items-center">
+
+    <!-- Inicio botón atrás -->
+    <div class="back-button">
+        <i class="bi bi-arrow-left-circle" routerLink="/auth/register"></i>
+    </div>
+    <!-- Fin botón atrás -->
+
+    <!-- ------Inicio tarjeta ------ -->
+    <div class="card align-items-center col-md-4 col-sm-6 col-xs-12">
+        <h2 class="mt-5 mb-3 text-center">Ingresa el código enviado</h2>
+
+        <!-- ------ Inicio formulario ------ -->
+        <form class="col-md-10" autocomplete="off" [formGroup]="miFormulario" (ngSubmit)="validateCode()">
+
+            <!-- ------ Inicio campo del código------ -->
+            <div class="input-group mt-5">
+                <div class="col-md-12 col-12">
+                    <i class="bi bi-envelope-fill input-icon"></i>
+                    <input  type="text" formControlName="codigo" [ngClass]="hasError('codigo')" placeholder="Ingresa el código">
+                </div>
+            </div>
+            <small *ngIf="invalidField('codigo')">
+                <i class="bi bi-exclamation-circle-fill error-icon"></i>
+                <span class="form-text text-danger">{{ this.miFormulario.controls['codigo'].errors?.['msg'] }}</span>
+            </small>
+            <!-- ------ Fin campo del código ------ -->
+
+            <!-- Inicio del texto de información -->
+            <div class="info-text mt-5">
+                <i class="bi bi-chat-quote-fill me-2"></i>
+                <p>Te hemos enviado un código al correo electrónico que nos has
+                    proporcionado. Por favor verifica tu bandeja de entrada, correos
+                    no deseados o tu bandeja de spam.</p>
+            </div>
+            
+            <!-- Fain del texto de información -->
+
+            <!-- ------ Inicio Botón registrarse ------ -->
+            <div class="d-flex justify-content-end">
+                <button class="btn red mt-4">
+                    Enviar
+                </button>
+            </div>
+            <!-- ------ Fin Botón registrarse ------ -->
+
+        </form>
+        <!-- ------ Fin formulario ------ -->
+
+    </div>
+    <!-- ------Fin tarjeta ------ -->
+</div>
+<!-- ------- Fin contenedor de la tarjeta ------ -->
