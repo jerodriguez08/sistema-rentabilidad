@@ -34,7 +34,7 @@ export class EmailComponent implements OnInit {
   invalidField(field: string): boolean{
     if(this.formPassword.controls[field].invalid
         && this.formPassword.controls[field].touched
-        || this.formPassword.controls[field].errors){
+        || this.formPassword.controls[field].errors && this.formPassword.controls[field].touched){
 
           const errors = this.formPassword.controls[field].errors;
 
