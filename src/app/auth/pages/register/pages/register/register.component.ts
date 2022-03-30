@@ -58,7 +58,7 @@ export class RegisterComponent implements OnInit {
             this.miFormulario.controls['email'].setErrors({'msg':resp.message});
             this.miFormulario.markAllAsTouched();
 
-            if(resp.message === 'Este correo ya está registrado pero no esta activada la cuenta'){
+            if(resp.message === 'Este correo ya está registrado pero no esta activada la cuenta.'){
               this.emailBackError = true;
             }
           }
